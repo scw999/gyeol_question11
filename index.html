@@ -469,6 +469,122 @@
         .chem-point { margin-top: 12px; padding: 12px; background: #fffbeb; border-radius: 8px; font-size: 0.85rem; color: #92400e; border: 1px solid #fef3c7; }
         /* Caution -> Advice (Blue) */
         .chem-advice { margin-top: 8px; padding: 12px; background: #eff6ff; border-radius: 8px; font-size: 0.85rem; color: #1e40af; border: 1px solid #dbeafe; }
+
+        /* ====== 피드백 시스템 스타일 ====== */
+        .feedback-section {
+            max-width: 640px; margin: 48px auto; padding: 0 16px;
+        }
+        .feedback-card {
+            background: #fff; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06); border: 1px solid #f0f0f0;
+        }
+        .feedback-header {
+            background: linear-gradient(135deg, #FFF8F0 0%, #FEF3E2 100%);
+            padding: 28px 24px; text-align: center; border-bottom: 1px solid #f0e6d4;
+        }
+        .feedback-header h3 {
+            font-family: 'Noto Serif KR', serif; font-size: 1.3rem; font-weight: 800; color: #1F2937;
+        }
+        .feedback-header p {
+            font-size: 0.8rem; color: #9CA3AF; margin-top: 6px;
+        }
+        .feedback-body { padding: 24px; }
+        .feedback-q {
+            margin-bottom: 28px;
+        }
+        .feedback-q-label {
+            font-size: 0.95rem; font-weight: 700; color: #374151; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+        }
+        .feedback-q-num {
+            background: var(--accent-gold); color: #fff; width: 24px; height: 24px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; flex-shrink: 0;
+        }
+        /* 별점 */
+        .star-rating { display: flex; gap: 6px; justify-content: center; }
+        .star-btn {
+            font-size: 2.2rem; cursor: pointer; transition: all 0.15s; filter: grayscale(1) opacity(0.3);
+            background: none; border: none; padding: 4px;
+        }
+        .star-btn.active { filter: none; transform: scale(1.15); }
+        .star-btn:hover { filter: none; transform: scale(1.2); }
+        .star-label { font-size: 0.8rem; color: #9CA3AF; text-align: center; margin-top: 8px; min-height: 20px; font-weight: 600; }
+        /* 예/아니오 */
+        .yn-group { display: flex; gap: 10px; }
+        .yn-btn {
+            flex: 1; padding: 14px; border-radius: 12px; border: 2px solid #f0f0f0; background: #fff;
+            font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: all 0.2s; text-align: center;
+        }
+        .yn-btn:hover { border-color: #ddd; background: #fafafa; }
+        .yn-btn.selected-yes { border-color: #10B981; background: #ECFDF5; color: #059669; }
+        .yn-btn.selected-no { border-color: #EF4444; background: #FEF2F2; color: #DC2626; }
+        .yn-btn.selected-maybe { border-color: #F59E0B; background: #FFFBEB; color: #D97706; }
+        /* 체크박스 피드백 */
+        .fb-check-group { display: flex; flex-direction: column; gap: 8px; }
+        .fb-check-item {
+            display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 10px;
+            border: 1px solid #f0f0f0; background: #fff; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; color: #555;
+        }
+        .fb-check-item:hover { border-color: #ddd; background: #fafafa; }
+        .fb-check-item.checked { border-color: var(--accent-gold); background: #FAF5EB; color: #3e2723; font-weight: 600; }
+        .fb-check-item input[type="checkbox"] { display: none; }
+        .fb-check-box {
+            width: 20px; height: 20px; border-radius: 6px; border: 2px solid #d1d5db;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s;
+            font-size: 0.7rem; color: transparent;
+        }
+        .fb-check-item.checked .fb-check-box { border-color: var(--accent-gold); background: var(--accent-gold); color: #fff; }
+        /* 서브 질문 영역 */
+        .fb-sub-area {
+            margin-top: 12px; padding: 16px; background: #f9fafb; border-radius: 12px; border: 1px dashed #e5e7eb;
+            animation: slideDown 0.3s ease-out forwards;
+        }
+        .fb-sub-label { font-size: 0.8rem; font-weight: 700; color: #6B7280; margin-bottom: 10px; }
+        /* 태그 */
+        .fb-tag-group { display: flex; flex-wrap: wrap; gap: 8px; }
+        .fb-tag {
+            padding: 8px 14px; border-radius: 20px; border: 1px solid #e5e7eb; background: #fff;
+            font-size: 0.8rem; color: #6B7280; cursor: pointer; transition: all 0.2s; font-weight: 500;
+        }
+        .fb-tag:hover { border-color: #ccc; }
+        .fb-tag.selected { border-color: var(--accent-gold); background: #FAF5EB; color: #92400E; font-weight: 700; }
+        /* 제출 */
+        .fb-submit-btn {
+            width: 100%; padding: 16px; border-radius: 14px; border: none;
+            background: linear-gradient(135deg, #C5A47E, #B8956D); color: #fff;
+            font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s;
+            box-shadow: 0 4px 15px rgba(197, 164, 126, 0.3);
+        }
+        .fb-submit-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(197, 164, 126, 0.4); }
+        .fb-submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        /* 감사 */
+        .fb-thanks {
+            text-align: center; padding: 40px 20px;
+            animation: scaleUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .fb-thanks-icon { font-size: 3rem; margin-bottom: 16px; }
+        .fb-thanks h4 { font-family: 'Noto Serif KR', serif; font-size: 1.3rem; font-weight: 700; color: #1F2937; margin-bottom: 8px; }
+        .fb-thanks p { font-size: 0.85rem; color: #9CA3AF; line-height: 1.6; }
+        .fb-privacy {
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            font-size: 0.7rem; color: #d1d5db; margin-top: 16px; padding-top: 16px; border-top: 1px solid #f3f4f6;
+        }
+        /* 카테고리 라벨 */
+        .fb-cat-label {
+            font-size: 0.6rem; padding: 2px 6px; border-radius: 4px; font-weight: 700; letter-spacing: 0.3px;
+            display: inline-block; margin-left: auto;
+        }
+        .fb-cat-a { background: #DBEAFE; color: #1E40AF; }
+        .fb-cat-b { background: #FEF3C7; color: #92400E; }
+        .fb-cat-c { background: #E0E7FF; color: #4338CA; }
+        .fb-cat-d { background: #FEE2E2; color: #991B1B; }
+        /* 데이터 분석 미리보기 */
+        .fb-analysis-preview {
+            margin-top: 20px; padding: 16px; background: #F8FAFC; border-radius: 12px; border: 1px solid #E2E8F0;
+        }
+        .fb-analysis-title { font-size: 0.75rem; font-weight: 700; color: #64748B; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+        .fb-analysis-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; font-size: 0.8rem; }
+        .fb-analysis-bar { height: 6px; background: #E2E8F0; border-radius: 3px; flex: 1; margin: 0 10px; overflow: hidden; }
+        .fb-analysis-fill { height: 100%; border-radius: 3px; transition: width 1s ease-in-out; }
     </style>
 </head>
 <body class="bg-texture min-h-screen text-gray-800 pb-32">
@@ -714,6 +830,279 @@
             <div class="max-w-2xl mx-auto mt-12 bg-indigo-50 p-8 rounded-3xl text-center border border-indigo-100">
                 <h3 class="text-lg font-bold text-indigo-900 mb-4">✨ 결하다 종합 결론</h3>
                 <p id="final-conclusion" class="text-indigo-800 text-sm leading-7 font-medium"></p>
+            </div>
+
+            <!-- ========== 8. 피드백 시스템 (FP2: 만남 후 피드백) ========== -->
+            <div class="feedback-section" id="feedback-section">
+                <div class="feedback-card">
+                    <div class="feedback-header">
+                        <p style="font-size:0.65rem; color:#C5A47E; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:4px;">Post-Meeting Feedback</p>
+                        <h3>만남 후 피드백</h3>
+                        <p>더 나은 매칭을 위해 소중한 의견을 들려주세요</p>
+                    </div>
+
+                    <!-- 피드백 본문 -->
+                    <div class="feedback-body" id="fb-body">
+
+                        <!-- Q1. 만남 만족도 (1-5점) -->
+                        <div class="feedback-q" id="fb-q1">
+                            <div class="feedback-q-label">
+                                <span class="feedback-q-num">1</span>
+                                만남은 어떠셨나요?
+                            </div>
+                            <div class="star-rating" id="fb-stars">
+                                <button class="star-btn" data-score="1" onclick="setStarRating(1)">⭐</button>
+                                <button class="star-btn" data-score="2" onclick="setStarRating(2)">⭐</button>
+                                <button class="star-btn" data-score="3" onclick="setStarRating(3)">⭐</button>
+                                <button class="star-btn" data-score="4" onclick="setStarRating(4)">⭐</button>
+                                <button class="star-btn" data-score="5" onclick="setStarRating(5)">⭐</button>
+                            </div>
+                            <div class="star-label" id="star-label"></div>
+                        </div>
+
+                        <!-- Q2. 다시 만나고 싶은지 -->
+                        <div class="feedback-q" id="fb-q2">
+                            <div class="feedback-q-label">
+                                <span class="feedback-q-num">2</span>
+                                다시 만나고 싶으신가요?
+                            </div>
+                            <div class="yn-group">
+                                <button class="yn-btn" data-value="yes" onclick="setMeetAgain('yes', this)">
+                                    😊 네, 좋았어요
+                                </button>
+                                <button class="yn-btn" data-value="maybe" onclick="setMeetAgain('maybe', this)">
+                                    🤔 모르겠어요
+                                </button>
+                                <button class="yn-btn" data-value="no" onclick="setMeetAgain('no', this)">
+                                    😔 아니요
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Q3. 만족 시 세부 (동적 표시) -->
+                        <div class="feedback-q hidden" id="fb-q3-good">
+                            <div class="feedback-q-label">
+                                <span class="feedback-q-num">3</span>
+                                어떤 점이 좋으셨나요? <span style="font-size:0.75rem; color:#9CA3AF; font-weight:400;">(복수 선택 가능)</span>
+                            </div>
+                            <div class="fb-check-group" id="fb-good-reasons">
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="appearance_better" data-cat="">
+                                    <span class="fb-check-box">✓</span>
+                                    외모가 프로필보다 더 좋았어요
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="conversation_good" data-cat="A">
+                                    <span class="fb-check-box">✓</span>
+                                    대화가 잘 통했어요
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="values_match" data-cat="A">
+                                    <span class="fb-check-box">✓</span>
+                                    가치관이 잘 맞았어요
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="manner_good" data-cat="C">
+                                    <span class="fb-check-box">✓</span>
+                                    매너가 좋았어요
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="lifestyle_match" data-cat="A">
+                                    <span class="fb-check-box">✓</span>
+                                    라이프스타일이 비슷했어요
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="chemistry" data-cat="">
+                                    <span class="fb-check-box">✓</span>
+                                    설명하기 어렵지만 끌렸어요
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Q3. 불만족 시 세부 (동적 표시) -->
+                        <div class="feedback-q hidden" id="fb-q3-bad">
+                            <div class="feedback-q-label">
+                                <span class="feedback-q-num">3</span>
+                                아쉬웠던 이유를 알려주세요 <span style="font-size:0.75rem; color:#9CA3AF; font-weight:400;">(복수 선택 가능)</span>
+                            </div>
+                            <div class="fb-check-group" id="fb-bad-reasons">
+                                <!-- 프로필 신뢰도 (Category D) -->
+                                <div style="font-size:0.7rem; font-weight:700; color:#991B1B; padding:8px 0 4px; text-transform:uppercase; letter-spacing:0.5px;">📋 프로필 신뢰도</div>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="photo_diff" data-cat="D">
+                                    <span class="fb-check-box">✓</span>
+                                    사진과 실물이 많이 달랐어요
+                                    <span class="fb-cat-label fb-cat-d">D</span>
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="body_diff" data-cat="D">
+                                    <span class="fb-check-box">✓</span>
+                                    키/체중이 프로필과 달랐어요
+                                    <span class="fb-cat-label fb-cat-d">D</span>
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="age_diff" data-cat="D">
+                                    <span class="fb-check-box">✓</span>
+                                    나이가 프로필과 달라 보였어요
+                                    <span class="fb-cat-label fb-cat-d">D</span>
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="job_diff" data-cat="D">
+                                    <span class="fb-check-box">✓</span>
+                                    직업/학력이 실제와 달랐어요
+                                    <span class="fb-cat-label fb-cat-d">D</span>
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="marriage_diff" data-cat="D">
+                                    <span class="fb-check-box">✓</span>
+                                    결혼 이력/자녀 유무가 달랐어요
+                                    <span class="fb-cat-label fb-cat-d">D</span>
+                                </label>
+
+                                <!-- 외모/첫인상 (Category A/C) -->
+                                <div style="font-size:0.7rem; font-weight:700; color:#4338CA; padding:16px 0 4px; text-transform:uppercase; letter-spacing:0.5px;">👤 외모 · 첫인상</div>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="appearance_nomatch" data-cat="A">
+                                    <span class="fb-check-box">✓</span>
+                                    외모가 생각보다 안 맞았어요 (프로필은 정확)
+                                    <span class="fb-cat-label fb-cat-a">A</span>
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="style_nomatch" data-cat="C">
+                                    <span class="fb-check-box">✓</span>
+                                    스타일/패션이 안 맞았어요
+                                    <span class="fb-cat-label fb-cat-c">C</span>
+                                </label>
+
+                                <!-- 대화/성격 (Category A/C) -->
+                                <div style="font-size:0.7rem; font-weight:700; color:#1E40AF; padding:16px 0 4px; text-transform:uppercase; letter-spacing:0.5px;">💬 대화 · 성격</div>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="conversation_bad" data-cat="A">
+                                    <span class="fb-check-box">✓</span>
+                                    대화가 잘 안 통했어요
+                                    <span class="fb-cat-label fb-cat-a">A</span>
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="talk_volume" data-cat="C">
+                                    <span class="fb-check-box">✓</span>
+                                    말이 너무 많았어요 / 너무 없었어요
+                                    <span class="fb-cat-label fb-cat-c">C</span>
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="personality_bad" data-cat="A">
+                                    <span class="fb-check-box">✓</span>
+                                    성격이 안 맞았어요
+                                    <span class="fb-cat-label fb-cat-a">A</span>
+                                </label>
+
+                                <!-- 가치관 (Category A/C) -->
+                                <div style="font-size:0.7rem; font-weight:700; color:#92400E; padding:16px 0 4px; text-transform:uppercase; letter-spacing:0.5px;">⚖️ 가치관</div>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="values_diff" data-cat="A">
+                                    <span class="fb-check-box">✓</span>
+                                    연애관/결혼관이 달랐어요
+                                    <span class="fb-cat-label fb-cat-a">A</span>
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="lifestyle_diff" data-cat="A">
+                                    <span class="fb-check-box">✓</span>
+                                    라이프스타일이 안 맞았어요
+                                    <span class="fb-cat-label fb-cat-a">A</span>
+                                </label>
+
+                                <!-- 기타 -->
+                                <div style="font-size:0.7rem; font-weight:700; color:#6B7280; padding:16px 0 4px; text-transform:uppercase; letter-spacing:0.5px;">기타</div>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="no_chemistry" data-cat="">
+                                    <span class="fb-check-box">✓</span>
+                                    특별한 이유 없이 끌리지 않았어요
+                                </label>
+                                <label class="fb-check-item" onclick="toggleCheck(this)">
+                                    <input type="checkbox" value="expectation_high" data-cat="B">
+                                    <span class="fb-check-box">✓</span>
+                                    제 기대가 높았던 것 같아요
+                                    <span class="fb-cat-label fb-cat-b">B</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Q4. 질문 정확도 (삼중뇌 연동) -->
+                        <div class="feedback-q hidden" id="fb-q4-brain">
+                            <div class="feedback-q-label">
+                                <span class="feedback-q-num">4</span>
+                                매칭 분석 중 실제와 달랐던 부분이 있나요? <span style="font-size:0.75rem; color:#9CA3AF; font-weight:400;">(선택)</span>
+                            </div>
+                            <div class="fb-tag-group" id="fb-brain-tags">
+                                <button class="fb-tag" data-brain="reptilian" onclick="toggleBrainTag(this)">🦎 생활 습관이 달랐어요</button>
+                                <button class="fb-tag" data-brain="limbic" onclick="toggleBrainTag(this)">❤️ 감정/소통이 달랐어요</button>
+                                <button class="fb-tag" data-brain="neocortex" onclick="toggleBrainTag(this)">🧠 가치관이 달랐어요</button>
+                                <button class="fb-tag" data-brain="accurate" onclick="toggleBrainTag(this)">✅ 분석이 정확했어요</button>
+                            </div>
+
+                            <!-- 삼중뇌 세부 (동적 표시) -->
+                            <div class="fb-sub-area hidden" id="fb-brain-detail-reptilian">
+                                <div class="fb-sub-label">🦎 어떤 생활 습관이 달랐나요?</div>
+                                <div class="fb-tag-group">
+                                    <button class="fb-tag" data-q="q_sleep,q_rhythm" onclick="toggleSubTag(this)">수면/리듬</button>
+                                    <button class="fb-tag" data-q="q_hygiene" onclick="toggleSubTag(this)">위생/청결</button>
+                                    <button class="fb-tag" data-q="q_food" onclick="toggleSubTag(this)">식성/음식</button>
+                                    <button class="fb-tag" data-q="q_charge,q_weekend" onclick="toggleSubTag(this)">에너지/주말</button>
+                                    <button class="fb-tag" data-q="q_plan" onclick="toggleSubTag(this)">계획성</button>
+                                    <button class="fb-tag" data-q="q_social_limit" onclick="toggleSubTag(this)">이성 친구 허용</button>
+                                </div>
+                            </div>
+                            <div class="fb-sub-area hidden" id="fb-brain-detail-limbic">
+                                <div class="fb-sub-label">❤️ 어떤 소통 방식이 달랐나요?</div>
+                                <div class="fb-tag-group">
+                                    <button class="fb-tag" data-q="q_contact_style" onclick="toggleSubTag(this)">연락 스타일</button>
+                                    <button class="fb-tag" data-q="q_expression" onclick="toggleSubTag(this)">사랑 표현</button>
+                                    <button class="fb-tag" data-q="q_empathy" onclick="toggleSubTag(this)">공감/위로</button>
+                                    <button class="fb-tag" data-q="q_anger,q_reconciliation" onclick="toggleSubTag(this)">싸움/화해</button>
+                                    <button class="fb-tag" data-q="q_apology,q_argument" onclick="toggleSubTag(this)">사과/논쟁</button>
+                                    <button class="fb-tag" data-q="q_dealbreaker" onclick="toggleSubTag(this)">이별 사유</button>
+                                </div>
+                            </div>
+                            <div class="fb-sub-area hidden" id="fb-brain-detail-neocortex">
+                                <div class="fb-sub-label">🧠 어떤 가치관이 달랐나요?</div>
+                                <div class="fb-tag-group">
+                                    <button class="fb-tag" data-q="q_finance,q_manage" onclick="toggleSubTag(this)">경제관/재무</button>
+                                    <button class="fb-tag" data-q="q_kids,q_parenting" onclick="toggleSubTag(this)">자녀/양육</button>
+                                    <button class="fb-tag" data-q="q_religion" onclick="toggleSubTag(this)">종교</button>
+                                    <button class="fb-tag" data-q="q_topic" onclick="toggleSubTag(this)">대화 코드</button>
+                                    <button class="fb-tag" data-q="q_retirement" onclick="toggleSubTag(this)">미래/노후</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 제출 버튼 -->
+                        <div class="mt-6">
+                            <button class="fb-submit-btn" id="fb-submit-btn" onclick="submitFeedback()" disabled>
+                                피드백 제출하기
+                            </button>
+                        </div>
+
+                        <div class="fb-privacy">
+                            <span>🔒</span> 피드백은 상대방에게 절대 공개되지 않습니다
+                        </div>
+                    </div>
+
+                    <!-- 제출 완료 화면 -->
+                    <div class="hidden" id="fb-thanks">
+                        <div class="fb-thanks">
+                            <div class="fb-thanks-icon">💝</div>
+                            <h4>소중한 피드백 감사합니다!</h4>
+                            <p>보내주신 의견은 더 나은 매칭을 위해<br>알고리즘 개선에 활용됩니다.</p>
+                        </div>
+
+                        <!-- 분석 미리보기 (데모) -->
+                        <div class="px-6 pb-6">
+                            <div class="fb-analysis-preview" id="fb-analysis-result">
+                                <div class="fb-analysis-title">📊 피드백 분석 (내부용 데모)</div>
+                                <div id="fb-analysis-content"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -2332,6 +2721,215 @@
                 panel.classList.remove('scale-95', 'opacity-0'); 
                 panel.classList.add('scale-100', 'opacity-100'); 
             }, 10); 
+        }
+
+        // ====== 피드백 시스템 JavaScript ======
+        const feedbackData = {
+            satisfaction: null,
+            meetAgain: null,
+            goodReasons: [],
+            badReasons: [],
+            brainMismatch: [],
+            questionMismatch: [],
+            categories: { A: 0, B: 0, C: 0, D: 0 }
+        };
+
+        const starLabels = {
+            1: '😞 매우 아쉬웠어요',
+            2: '😕 기대에 못 미쳤어요',
+            3: '😐 보통이었어요',
+            4: '🙂 괜찮았어요',
+            5: '😍 정말 좋았어요!'
+        };
+
+        function setStarRating(score) {
+            feedbackData.satisfaction = score;
+            document.querySelectorAll('#fb-stars .star-btn').forEach(btn => {
+                btn.classList.toggle('active', parseInt(btn.dataset.score) <= score);
+            });
+            document.getElementById('star-label').textContent = starLabels[score] || '';
+            checkFbSubmittable();
+        }
+
+        function setMeetAgain(value, btn) {
+            feedbackData.meetAgain = value;
+            document.querySelectorAll('.yn-btn').forEach(b => {
+                b.classList.remove('selected-yes', 'selected-no', 'selected-maybe');
+            });
+            btn.classList.add(value === 'yes' ? 'selected-yes' : value === 'no' ? 'selected-no' : 'selected-maybe');
+
+            // 동적 Q3 표시
+            const goodQ = document.getElementById('fb-q3-good');
+            const badQ = document.getElementById('fb-q3-bad');
+            const brainQ = document.getElementById('fb-q4-brain');
+
+            if (value === 'yes') {
+                goodQ.classList.remove('hidden');
+                badQ.classList.add('hidden');
+                brainQ.classList.remove('hidden');
+            } else if (value === 'no') {
+                goodQ.classList.add('hidden');
+                badQ.classList.remove('hidden');
+                brainQ.classList.remove('hidden');
+            } else {
+                goodQ.classList.add('hidden');
+                badQ.classList.remove('hidden');
+                brainQ.classList.remove('hidden');
+            }
+            checkFbSubmittable();
+        }
+
+        function toggleCheck(label) {
+            const checkbox = label.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            label.classList.toggle('checked', checkbox.checked);
+        }
+
+        function toggleBrainTag(btn) {
+            btn.classList.toggle('selected');
+            const brain = btn.dataset.brain;
+            // 세부 영역 토글
+            ['reptilian', 'limbic', 'neocortex'].forEach(b => {
+                const detail = document.getElementById(`fb-brain-detail-${b}`);
+                if (detail) {
+                    if (b === brain && btn.classList.contains('selected')) {
+                        detail.classList.remove('hidden');
+                    } else if (b === brain) {
+                        detail.classList.add('hidden');
+                    }
+                }
+            });
+            // accurate 선택 시 다른 뇌 영역 해제
+            if (brain === 'accurate' && btn.classList.contains('selected')) {
+                document.querySelectorAll('#fb-brain-tags .fb-tag:not([data-brain="accurate"])').forEach(b => {
+                    b.classList.remove('selected');
+                });
+                ['reptilian', 'limbic', 'neocortex'].forEach(b => {
+                    const d = document.getElementById(`fb-brain-detail-${b}`);
+                    if (d) d.classList.add('hidden');
+                });
+            } else if (brain !== 'accurate') {
+                document.querySelector('#fb-brain-tags .fb-tag[data-brain="accurate"]')?.classList.remove('selected');
+            }
+        }
+
+        function toggleSubTag(btn) {
+            btn.classList.toggle('selected');
+        }
+
+        function checkFbSubmittable() {
+            const ok = feedbackData.satisfaction !== null && feedbackData.meetAgain !== null;
+            document.getElementById('fb-submit-btn').disabled = !ok;
+        }
+
+        function collectFeedback() {
+            // 만족 이유 수집
+            feedbackData.goodReasons = [];
+            document.querySelectorAll('#fb-good-reasons input:checked').forEach(cb => {
+                feedbackData.goodReasons.push({ value: cb.value, cat: cb.dataset.cat });
+            });
+            // 불만족 이유 수집
+            feedbackData.badReasons = [];
+            document.querySelectorAll('#fb-bad-reasons input:checked').forEach(cb => {
+                feedbackData.badReasons.push({ value: cb.value, cat: cb.dataset.cat });
+            });
+            // 삼중뇌 불일치 수집
+            feedbackData.brainMismatch = [];
+            document.querySelectorAll('#fb-brain-tags .fb-tag.selected').forEach(btn => {
+                feedbackData.brainMismatch.push(btn.dataset.brain);
+            });
+            // 질문별 불일치 수집
+            feedbackData.questionMismatch = [];
+            document.querySelectorAll('.fb-sub-area .fb-tag.selected').forEach(btn => {
+                feedbackData.questionMismatch.push(...btn.dataset.q.split(','));
+            });
+            // Category 집계
+            feedbackData.categories = { A: 0, B: 0, C: 0, D: 0 };
+            const allReasons = [...feedbackData.goodReasons, ...feedbackData.badReasons];
+            allReasons.forEach(r => {
+                if (r.cat && feedbackData.categories[r.cat] !== undefined) {
+                    feedbackData.categories[r.cat]++;
+                }
+            });
+            return feedbackData;
+        }
+
+        function submitFeedback() {
+            const data = collectFeedback();
+
+            // UI 전환
+            document.getElementById('fb-body').classList.add('hidden');
+            document.getElementById('fb-thanks').classList.remove('hidden');
+
+            // 분석 미리보기 렌더링
+            renderFbAnalysis(data);
+
+            // 콘솔에 데이터 출력 (실제로는 API 전송)
+            console.log('📊 [Feedback Data]', JSON.stringify(data, null, 2));
+
+            // 부드럽게 스크롤
+            document.getElementById('feedback-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        function renderFbAnalysis(data) {
+            const content = document.getElementById('fb-analysis-content');
+            let html = '';
+
+            // 만족도 & 재만남
+            html += `<div class="fb-analysis-row"><span style="color:#374151;font-weight:600;">만족도</span><span style="font-weight:700;color:${data.satisfaction >= 4 ? '#059669' : data.satisfaction >= 3 ? '#D97706' : '#DC2626'}">${'⭐'.repeat(data.satisfaction)} (${data.satisfaction}/5)</span></div>`;
+            html += `<div class="fb-analysis-row"><span style="color:#374151;font-weight:600;">재만남 의향</span><span style="font-weight:700;color:${data.meetAgain === 'yes' ? '#059669' : data.meetAgain === 'maybe' ? '#D97706' : '#DC2626'}">${data.meetAgain === 'yes' ? '✅ 예' : data.meetAgain === 'maybe' ? '🤔 보류' : '❌ 아니오'}</span></div>`;
+            html += '<div style="border-top:1px solid #E2E8F0;margin:10px 0;"></div>';
+
+            // Category 분석
+            const catTotal = Object.values(data.categories).reduce((a, b) => a + b, 0) || 1;
+            const catLabels = {
+                A: { name: '알고리즘 튜닝', color: '#3B82F6', bg: '#DBEAFE' },
+                B: { name: '기대치 관리', color: '#F59E0B', bg: '#FEF3C7' },
+                C: { name: 'Missing Feature', color: '#8B5CF6', bg: '#EDE9FE' },
+                D: { name: '프로필 신뢰도', color: '#EF4444', bg: '#FEE2E2' }
+            };
+
+            html += '<div style="font-size:0.75rem;font-weight:700;color:#64748B;margin-bottom:8px;">CATEGORY 분석</div>';
+            Object.entries(catLabels).forEach(([key, info]) => {
+                const count = data.categories[key];
+                const pct = catTotal > 0 ? Math.round((count / catTotal) * 100) : 0;
+                html += `<div class="fb-analysis-row">
+                    <span style="width:120px;font-size:0.8rem;color:${info.color};font-weight:600;">${key}. ${info.name}</span>
+                    <div class="fb-analysis-bar"><div class="fb-analysis-fill" style="width:${pct}%;background:${info.color};"></div></div>
+                    <span style="width:40px;text-align:right;font-size:0.75rem;font-weight:700;color:${info.color};">${count}건</span>
+                </div>`;
+            });
+
+            // 삼중뇌 불일치
+            if (data.brainMismatch.length > 0 && !data.brainMismatch.includes('accurate')) {
+                html += '<div style="border-top:1px solid #E2E8F0;margin:10px 0;"></div>';
+                html += '<div style="font-size:0.75rem;font-weight:700;color:#64748B;margin-bottom:8px;">삼중뇌 불일치 영역</div>';
+                const brainMap = { reptilian: '🦎 Reptilian (생활습관)', limbic: '❤️ Limbic (감정/소통)', neocortex: '🧠 Neocortex (가치관)' };
+                data.brainMismatch.forEach(b => {
+                    if (brainMap[b]) html += `<div style="font-size:0.8rem;padding:4px 0;color:#374151;">▸ ${brainMap[b]}</div>`;
+                });
+            }
+
+            // 질문 불일치
+            if (data.questionMismatch.length > 0) {
+                html += '<div style="border-top:1px solid #E2E8F0;margin:10px 0;"></div>';
+                html += '<div style="font-size:0.75rem;font-weight:700;color:#64748B;margin-bottom:8px;">불일치 질문 (알고리즘 가중치 조정 대상)</div>';
+                const qMap = {
+                    q_sleep: 'Q1 수면', q_rhythm: 'Q2 리듬', q_hygiene: 'Q3 위생', q_food: 'Q4 식성',
+                    q_charge: 'Q5 충전', q_weekend: 'Q6 주말', q_plan: 'Q7 계획', q_social_limit: 'Q8 이성친구',
+                    q_contact_style: 'Q9 연락', q_expression: 'Q11 표현', q_empathy: 'Q12 공감',
+                    q_anger: 'Q13 싸움', q_reconciliation: 'Q14 화해', q_apology: 'Q15 사과', q_argument: 'Q16 논쟁',
+                    q_dealbreaker: 'Q17 이별사유', q_finance: 'Q18 재무', q_manage: 'Q19 관리',
+                    q_kids: 'Q20 자녀', q_parenting: 'Q21 훈육', q_religion: 'Q22 종교',
+                    q_topic: 'Q23 대화', q_retirement: 'Q24 노후'
+                };
+                const uniqueQs = [...new Set(data.questionMismatch)];
+                uniqueQs.forEach(q => {
+                    if (qMap[q]) html += `<span style="display:inline-block;font-size:0.7rem;padding:4px 8px;margin:2px;border-radius:6px;background:#FEF3C7;color:#92400E;font-weight:600;">${qMap[q]}</span>`;
+                });
+            }
+
+            content.innerHTML = html;
         }
 
         const retryBtn = document.getElementById('retry-btn');
