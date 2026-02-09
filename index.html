@@ -696,6 +696,27 @@
                             <div class="resonance-canvas-wrapper">
                                 <canvas id="resonanceWaveCanvas"></canvas>
                             </div>
+                            <!-- 파동 해석 요약 (3줄) -->
+                            <div id="wave-summary" class="wave-summary-box" style="
+                                margin: 16px auto 20px; max-width: 460px; padding: 16px 20px;
+                                background: #FAFAFA; border-radius: 14px; border: 1px solid #F0F0F0;
+                                text-align: left; font-size: 0.88rem; line-height: 1.7;
+                            ">
+                                <div id="wave-male-line" style="display:flex; align-items:flex-start; gap:8px; margin-bottom:6px;">
+                                    <span id="wave-icon-male" style="flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:6px; background:var(--male-color); color:#fff; font-size:0.65rem; font-weight:800; margin-top:2px;">♂</span>
+                                    <span id="wave-male-text" style="color:#4B5563; font-weight:500;">분석중...</span>
+                                </div>
+                                <div id="wave-female-line" style="display:flex; align-items:flex-start; gap:8px; margin-bottom:6px;">
+                                    <span id="wave-icon-female" style="flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:6px; background:var(--female-color); color:#fff; font-size:0.65rem; font-weight:800; margin-top:2px;">♀</span>
+                                    <span id="wave-female-text" style="color:#4B5563; font-weight:500;">분석중...</span>
+                                </div>
+                                <div style="border-top:1px dashed #E5E7EB; margin:8px 0;"></div>
+                                <div id="wave-combined-line" style="display:flex; align-items:flex-start; gap:8px;">
+                                    <span id="wave-icon-combined" style="flex-shrink:0; display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; border-radius:6px; background:linear-gradient(135deg, var(--male-color), var(--female-color)); color:#fff; font-size:0.6rem; font-weight:800; margin-top:2px;">♥</span>
+                                    <span id="wave-combined-text" style="color:#1F2937; font-weight:600;">분석중...</span>
+                                </div>
+                            </div>
+
                             <p id="resonance-desc" class="resonance-desc"></p>
                         </div>
 
@@ -1224,9 +1245,6 @@
                     
                     <!-- 섹션 1: 파동 콘텐츠 (기본 숨김) - 유저 친화적 버전 -->
                     <div id="guide-content-resonance" class="hidden">
-                        <h4 class="font-bold text-blue-600 mb-4 text-lg flex items-center border-b border-blue-100 pb-2">
-                            <span class="text-2xl mr-2">🌊</span> 이 파동은 이런 뜻이에요
-                        </h4>
                         <p class="mb-4 text-gray-700">두 분의 성격과 가치관을 파동으로 표현했어요. <b>파동의 모양만 봐도</b> 서로를 이해할 수 있습니다.</p>
                         
                         <div class="bg-blue-50 p-5 rounded-xl border border-blue-100 space-y-4">
@@ -1261,11 +1279,11 @@
                             <div class="flex gap-3">
                                 <div class="min-w-[40px] text-2xl">💞</div>
                                 <div>
-                                    <span class="font-bold text-blue-900 block mb-1 text-base">두 파동이 겹치면? 찰떡궁합!</span>
+                                    <span class="font-bold text-blue-900 block mb-1 text-base">두 파동이 만나면? 특별한 케미!</span>
                                     <p class="text-xs text-gray-600 leading-5">
-                                        두 분의 파동이 얼마나 비슷하게 움직이는지가 바로 <b>궁합</b>이에요.
+                                        두 분의 파동이 어떻게 만나느냐가 바로 <b>궁합</b>이에요.
                                         <br>• <b>파동이 겹칠 때:</b> <span class="text-rose-600">"말 안 해도 통해!"</span> 생각과 감정이 자연스럽게 일치하는 소울메이트
-                                        <br>• <b>파동이 엇갈릴 때:</b> <span class="text-rose-600">"서로 부족한 걸 채워줘!"</span> 나와 다른 매력이 시너지를 만드는 하모니 커플
+                                        <br>• <b>파동이 다를 때:</b> <span class="text-rose-600">"너라서 특별해!"</span> 나에게 없는 매력이 시너지를 만드는 최강 조합
                                     </p>
                                 </div>
                             </div>
@@ -1277,12 +1295,14 @@
                                     <span class="font-bold text-blue-900 block mb-1 text-base">파동 색상 = 나의 대표 매력</span>
                                     <p class="text-xs text-gray-600 mb-2">가장 높은 성격 점수가 파동의 색으로 나타나요.</p>
                                     <div class="grid grid-cols-2 gap-2 text-[11px]">
-                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-indigo-500 mr-1"></span><b>보라:</b> 호기심 많은 탐험가</span>
-                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-blue-500 mr-1"></span><b>파랑:</b> 믿음직한 계획가</span>
-                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-orange-500 mr-1"></span><b>주황:</b> 에너지 넘치는 리더</span>
-                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-emerald-500 mr-1"></span><b>초록:</b> 따뜻한 배려의 아이콘</span>
-                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-cyan-500 mr-1"></span><b>청록:</b> 흔들리지 않는 든든함</span>
-                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-red-400 mr-1"></span><b>빨강:</b> 감성이 풍부한 공감러</span>
+                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-1" style="background:#8B5CF6"></span><b>보라:</b> 호기심 많은 탐험가</span>
+                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-1" style="background:#3B82F6"></span><b>파랑:</b> 믿음직한 계획가</span>
+                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-1" style="background:#F97316"></span><b>주황:</b> 에너지 넘치는 리더</span>
+                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-1" style="background:#10B981"></span><b>초록:</b> 따뜻한 배려의 아이콘</span>
+                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-1" style="background:#06B6D4"></span><b>청록:</b> 흔들리지 않는 든든함</span>
+                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-1" style="background:#6366F1"></span><b>남색:</b> 깊은 신뢰의 수호자</span>
+                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-1" style="background:#EF4444"></span><b>빨강:</b> 감성 풍부한 공감러</span>
+                                        <span class="flex items-center"><span class="w-3 h-3 rounded-full mr-1" style="background:#64748B"></span><b>은빛:</b> 독립적인 자유인</span>
                                     </div>
                                 </div>
                             </div>
@@ -1679,7 +1699,7 @@
             love: [
                 { min: 90, text: "눈빛만 봐도 통해요 😍", class: "perfect" },
                 { min: 70, text: "대화가 잘 통해요 💬", class: "good" },
-                { min: 50, text: "이해와 노력이 필요해요 👂", class: "diff" },
+                { min: 50, text: "다른 표현이 새로워요 👂", class: "diff" },
                 { min: 0, text: "표현 방식이 달라요 📡", class: "unique" }
             ],
             value: [
@@ -2459,6 +2479,369 @@
                 </div>
             `;
         }
+        // ── 파동 한 줄 해석 v4: 색상 통합 + 프로필당 3 variant ──
+        const waveColorMeta = {
+            '개방성':  { name: '보랏빛', meaning: '호기심의 색', emoji: '🟣' },
+            '성실성':  { name: '푸른빛', meaning: '신뢰의 색', emoji: '🔵' },
+            '외향성':  { name: '주황빛', meaning: '활력의 색', emoji: '🟠' },
+            '우호성':  { name: '초록빛', meaning: '배려의 색', emoji: '🟢' },
+            '정서안정': { name: '청록빛', meaning: '평온의 색', emoji: '🩵' },
+            '애착안정': { name: '남빛', meaning: '깊은 신뢰의 색', emoji: '🔵' },
+            '애착불안': { name: '붉은빛', meaning: '감수성의 색', emoji: '🔴' },
+            '애착회피': { name: '은빛', meaning: '자존의 색', emoji: '⚪' }
+        };
+
+        const colorComboDesc = {
+            '개방성+외향성':     '에너지와 호기심이 폭발하듯 뻗어나가는',
+            '개방성+성실성':     '꿈과 현실이 균형을 이루며 나아가는',
+            '개방성+우호성':     '열린 마음이 부드럽게 감싸 안는',
+            '개방성+정서안정':   '흔들림 없이 새로운 깊이를 탐색하는',
+            '개방성+애착안정':   '안정 속에서 자유롭게 탐색하는',
+            '개방성+애착불안':   '감수성이 호기심을 타고 번지는',
+            '개방성+애착회피':   '독자적 세계를 탐구하며 울리는',
+            '성실성+외향성':     '추진력에 전략이 더해져 힘차게 나아가는',
+            '성실성+우호성':     '성실한 배려가 묵직하게 흐르는',
+            '성실성+정서안정':   '반석처럼 단단하고 흔들림 없는',
+            '성실성+애착안정':   '깊은 신뢰 위에 계획이 쌓이는',
+            '성실성+애착불안':   '완벽을 향한 긴장감이 팽팽한',
+            '성실성+애착회피':   '독립적 추진력이 규칙적으로 나아가는',
+            '외향성+우호성':     '활력이 배려를 만나 따뜻하게 퍼지는',
+            '외향성+정서안정':   '안정된 에너지를 밝게 발산하는',
+            '애착안정+외향성':   '든든한 에너지가 밝게 퍼지는',
+            '애착불안+외향성':   '뜨겁고 강렬한 감정이 요동치는',
+            '애착회피+외향성':   '넓게 퍼지면서도 중심을 지키는',
+            '우호성+정서안정':   '갈등을 녹이며 고요하게 흐르는',
+            '애착안정+우호성':   '따뜻하게 감싸는 포근한',
+            '애착불안+우호성':   '사랑이 넘쳐 섬세하게 떨리는',
+            '애착회피+우호성':   '거리를 두면서 은은히 배려하는',
+            '애착안정+정서안정': '어떤 바람에도 흔들리지 않는',
+            '애착불안+정서안정': '겉은 고요하나 속은 깊은',
+            '애착회피+정서안정': '초연하고 일정한 간격을 유지하는',
+            '애착불안+애착안정': '안정을 향해 조금씩 잔잔해지는',
+            '애착안정+애착회피': '열림과 닫힘이 번갈아 흐르는',
+            '애착불안+애착회피': '다가감과 물러남이 교차하는'
+        };
+
+        function getWaveSummaryLines(score, mAxes, fAxes) {
+
+            function describePersonal(axes) {
+                const all = [
+                    { k:'외향성', v: axes['외향성']||0 }, { k:'개방성', v: axes['개방성']||0 },
+                    { k:'성실성', v: axes['성실성']||0 }, { k:'우호성', v: axes['우호성']||0 },
+                    { k:'정서안정', v: axes['정서안정']||0 }, { k:'애착안정', v: axes['애착안정']||0 },
+                    { k:'애착불안', v: axes['애착불안']||0 }, { k:'애착회피', v: axes['애착회피']||0 }
+                ].sort((a,b) => b.v - a.v);
+                const top1 = all[0].k, top2 = all[1].k;
+
+                const amp = (axes['외향성']||0)*1.2 + (axes['개방성']||0)*0.8 + (axes['애착불안']||0)*0.5;
+                const stab = (axes['성실성']||0) + (axes['정서안정']||0) + (axes['애착안정']||0)*1.5;
+
+                // 에너지 레벨 (high/mid/low) — 프로필 내 3분기용
+                const eLevel = amp >= 5 ? 'H' : amp >= 3 ? 'M' : 'L';
+
+                let waveAdj;
+                if      (amp >= 7)               waveAdj = '크고 힘차게 출렁이는';
+                else if (amp >= 5 && stab <= 3)   waveAdj = '빠르고 역동적으로 요동치는';
+                else if (amp >= 5 && stab >= 5)   waveAdj = '넓고 안정감 있게 흐르는';
+                else if (amp >= 5)                waveAdj = '적당히 크고 리듬감 있는';
+                else if (amp >= 3 && stab >= 6)   waveAdj = '낮고 고요하게 이어지는';
+                else if (amp >= 3 && stab >= 4)   waveAdj = '잔잔하고 규칙적인';
+                else if (amp >= 3)                waveAdj = '부드럽게 물결치는';
+                else if (stab >= 5)               waveAdj = '깊고 느리게 흐르는';
+                else if (stab >= 3)               waveAdj = '섬세하게 진동하는';
+                else                              waveAdj = '미세하고 불규칙하게 떨리는';
+
+                const colorInfo = waveColorMeta[top1] || waveColorMeta['우호성'];
+                const comboKey = [top1, top2].sort().join('+');
+
+                // 28 profiles × 3 energy levels = 84 variants
+                const profiles = {
+                    '개방성+외향성': {
+                        label: '자유로운 탐험가',
+                        H: '미지의 영역을 향해 거침없이 뻗어나가는',
+                        M: '새로운 경험을 찾아 꾸준히 파장을 넓히는',
+                        L: '조용히 호기심의 촉수를 사방으로 뻗는'
+                    },
+                    '개방성+성실성': {
+                        label: '전략적 혁신가',
+                        H: '계획된 도전으로 강하게 전진하는',
+                        M: '체계적 호기심으로 꾸준히 영역을 확장하는',
+                        L: '신중하게 한 걸음씩 새로운 길을 개척하는'
+                    },
+                    '개방성+우호성': {
+                        label: '열린 마음의 수용가',
+                        H: '모든 감정을 끌어안으며 활발하게 퍼지는',
+                        M: '다양한 관점을 수용하며 부드럽게 퍼지는',
+                        L: '조용히 귀 기울이며 은은하게 공감하는'
+                    },
+                    '개방성+정서안정': {
+                        label: '담대한 사색가',
+                        H: '흔들림 없는 에너지로 넓은 세계를 탐험하는',
+                        M: '안정된 기반 위에서 깊이를 탐색하는',
+                        L: '고요한 내면에서 사유의 깊이를 더하는'
+                    },
+                    '개방성+애착안정': {
+                        label: '여유로운 모험가',
+                        H: '단단한 토대 위에서 거침없이 도전하는',
+                        M: '안정감을 바탕으로 호기심을 펼치는',
+                        L: '편안한 자리에서 조용히 세상을 관찰하는'
+                    },
+                    '개방성+애착불안': {
+                        label: '열정적 감성가',
+                        H: '강렬한 감수성으로 세상을 온몸으로 느끼는',
+                        M: '감정의 파도를 타며 새로운 자극을 흡수하는',
+                        L: '섬세한 안테나로 미세한 변화를 감지하는'
+                    },
+                    '개방성+애착회피': {
+                        label: '독립적 사색가',
+                        H: '자신만의 궤도에서 강하게 독자적 세계를 구축하는',
+                        M: '홀로 깊이 탐구하며 고유한 리듬을 만드는',
+                        L: '조용히 자신만의 세계에 침잠하는'
+                    },
+                    '성실성+외향성': {
+                        label: '목표를 향한 실행가',
+                        H: '정해진 방향으로 강하고 규칙적으로 돌진하는',
+                        M: '계획대로 착실하게 앞으로 나아가는',
+                        L: '묵묵히 한 걸음씩 목표를 향해 걷는'
+                    },
+                    '성실성+우호성': {
+                        label: '묵묵한 수호자',
+                        H: '꾸준하고 따뜻한 에너지로 주변을 지키는',
+                        M: '성실한 배려가 묵직한 리듬으로 이어지는',
+                        L: '조용히 곁을 지키며 든든함을 전하는'
+                    },
+                    '성실성+정서안정': {
+                        label: '반석 같은 안정가',
+                        H: '흔들림 없는 힘으로 넓고 일정하게 뻗는',
+                        M: '일정한 파장을 유지하며 단단하게 흐르는',
+                        L: '깊고 낮게 묵묵히 자리를 지키는'
+                    },
+                    '성실성+애착안정': {
+                        label: '믿음직한 계획가',
+                        H: '강한 신뢰감으로 예측 가능하게 전진하는',
+                        M: '계획적 리듬으로 안정감을 주는',
+                        L: '조용하지만 믿을 수 있는 일관된 리듬의'
+                    },
+                    '성실성+애착불안': {
+                        label: '노력하는 완벽주의자',
+                        H: '완벽을 향해 빈틈없이 강하게 진동하는',
+                        M: '꼼꼼한 긴장감으로 규칙적으로 떨리는',
+                        L: '미세하게 조율하며 정밀하게 움직이는'
+                    },
+                    '성실성+애착회피': {
+                        label: '자립적 실행가',
+                        H: '독립적 추진력으로 자기 궤도를 힘차게 그리는',
+                        M: '규칙적이고 독자적으로 자기 길을 걷는',
+                        L: '조용히 자신의 페이스를 지키며 나아가는'
+                    },
+                    '애착안정+외향성': {
+                        label: '믿음직한 사교가',
+                        H: '편안한 에너지를 크고 따뜻하게 발산하는',
+                        M: '안정된 친근함으로 자연스럽게 어울리는',
+                        L: '조용하지만 함께 있으면 편안해지는'
+                    },
+                    '애착불안+외향성': {
+                        label: '솔직한 감정 표현가',
+                        H: '감정을 숨기지 않고 크게 요동치는 강렬한',
+                        M: '솔직한 마음이 리듬을 타며 전해지는',
+                        L: '작지만 진심이 묻어나는 떨림의'
+                    },
+                    '애착회피+외향성': {
+                        label: '자유로운 활동가',
+                        H: '넓게 퍼지지만 중심은 단단히 홀로 지키는',
+                        M: '활발하되 적정 거리를 유지하는 독특한',
+                        L: '겉은 사교적이나 혼자만의 영역이 있는'
+                    },
+                    '외향성+우호성': {
+                        label: '따뜻한 분위기 메이커',
+                        H: '주변을 감싸며 밝고 넓게 활기차게 퍼지는',
+                        M: '사람들 사이에서 따뜻한 리듬을 만드는',
+                        L: '은은하지만 함께하면 분위기가 밝아지는'
+                    },
+                    '외향성+정서안정': {
+                        label: '든든한 에너자이저',
+                        H: '안정된 힘으로 활기차고 넓게 출렁이는',
+                        M: '꾸준한 에너지를 밝고 안정적으로 발산하는',
+                        L: '차분하지만 은근한 활력이 묻어나는'
+                    },
+                    '우호성+정서안정': {
+                        label: '평화로운 조율가',
+                        H: '갈등을 녹이며 넓고 부드럽게 흐르는',
+                        M: '주변을 편안하게 만드는 고요한 리듬의',
+                        L: '조용히 곁에서 평화를 지키는 잔잔한'
+                    },
+                    '애착안정+우호성': {
+                        label: '포근한 안식처',
+                        H: '상대를 감싸주듯 넓고 따뜻하게 감도는',
+                        M: '함께 있으면 마음이 놓이는 부드러운 리듬의',
+                        L: '조용히 곁에 있는 것만으로 안심이 되는'
+                    },
+                    '애착불안+우호성': {
+                        label: '다정한 걱정꾸러기',
+                        H: '사랑이 넘쳐 크게 요동치는 뜨거운',
+                        M: '마음 씀씀이가 미세한 떨림으로 전해지는',
+                        L: '조용하지만 가장 먼저 상대를 걱정하는 섬세한'
+                    },
+                    '애착회피+우호성': {
+                        label: '예의 바른 관찰자',
+                        H: '거리를 두면서도 배려가 선명하게 드러나는',
+                        M: '적절한 간격 속에 은은한 따뜻함이 묻어나는',
+                        L: '말 없이 지켜보며 조용히 챙기는'
+                    },
+                    '애착안정+정서안정': {
+                        label: '고요한 등대',
+                        H: '어떤 파도에도 흔들리지 않는 넓고 깊은',
+                        M: '깊은 안정감으로 주변까지 잠재우는',
+                        L: '아무 말 없이도 안심이 되는 고요한'
+                    },
+                    '애착불안+정서안정': {
+                        label: '겉잔잔 속깊은 감성가',
+                        H: '표면의 잔잔함 아래 강한 감정이 소용돌이치는',
+                        M: '고요한 표면 아래 섬세한 울림이 숨어있는',
+                        L: '겉으로는 평온하나 안쪽에 미세한 파문이 이는'
+                    },
+                    '애착회피+정서안정': {
+                        label: '초연한 현실주의자',
+                        H: '감정에 휩쓸리지 않고 강한 자기 리듬을 유지하는',
+                        M: '일정한 간격으로 담담하게 흐르는',
+                        L: '최소한의 움직임으로 자기 자리를 지키는'
+                    },
+                    '애착불안+애착안정': {
+                        label: '성장하는 감성인',
+                        H: '크게 흔들리면서도 안정을 향해 힘차게 나아가는',
+                        M: '불안과 안정 사이에서 점차 균형을 찾아가는',
+                        L: '조용히 내면을 다잡으며 성장하는'
+                    },
+                    '애착안정+애착회피': {
+                        label: '선택적 개방가',
+                        H: '열림과 닫힘을 크게 반복하는 독특한 리듬의',
+                        M: '때에 따라 열리고 닫히는 자기만의 리듬으로',
+                        L: '신중하게 문을 여닫으며 조용히 관계를 조율하는'
+                    },
+                    '애착불안+애착회피': {
+                        label: '복잡한 내면의 소유자',
+                        H: '다가감과 물러섬이 역동적으로 교차하는 독특한',
+                        M: '밀고 당기는 리듬이 매력적으로 반복되는',
+                        L: '작지만 신비로운 미세한 진동의'
+                    }
+                };
+
+                const profile = profiles[comboKey] || { label: '균형잡힌 조율가', H: '다양한 성향이 고르게 어우러져 활발하게 흐르는', M: '어느 한쪽에 치우치지 않는 조화로운', L: '균형 잡힌 고요함으로 잔잔하게 흐르는' };
+                const waveDesc = profile[eLevel] || profile['M'];
+                const labelColor = traitColors[top1] ? traitColors[top1][0] : '#374151';
+
+                return {
+                    html: `${waveAdj} <b style="color:${labelColor}">${profile.label}</b> — ${waveDesc} ${colorInfo.name}<span style="color:#9CA3AF">(${colorInfo.meaning})</span> 파동`,
+                    colorKey: top1,
+                    color: traitColors[top1] || traitColors['우호성'],
+                    emoji: colorInfo.emoji
+                };
+            }
+
+            function describeCombined(sc, mA, fA, mColorKey, fColorKey) {
+                const mAmp = (mA['외향성']||0)*1.2 + (mA['개방성']||0)*0.8 + (mA['애착불안']||0)*0.5;
+                const fAmp = (fA['외향성']||0)*1.2 + (fA['개방성']||0)*0.8 + (fA['애착불안']||0)*0.5;
+                const ampGap = Math.abs(mAmp - fAmp);
+                const avgAmp = (mAmp + fAmp) / 2;
+                const mFreq = (mA['성실성']||0) + (mA['정서안정']||0) + (mA['애착안정']||0)*1.5;
+                const fFreq = (fA['성실성']||0) + (fA['정서안정']||0) + (fA['애착안정']||0)*1.5;
+                const freqGap = Math.abs(mFreq - fFreq);
+                const avgFreq = (mFreq + fFreq) / 2;
+
+                const getAttach = (a) => {
+                    const s = a['애착안정']||0, n = a['애착불안']||0, v = a['애착회피']||0;
+                    if (s >= n && s >= v) return 'secure';
+                    return n >= v ? 'anxious' : 'avoidant';
+                };
+                const mAt = getAttach(mA), fAt = getAttach(fA);
+                const attachCombo = [mAt, fAt].sort().join('-');
+                const sameColor = mColorKey === fColorKey;
+
+                const mCM = waveColorMeta[mColorKey] || waveColorMeta['우호성'];
+                const fCM = waveColorMeta[fColorKey] || waveColorMeta['우호성'];
+
+                let colorPrefix;
+                if (sameColor) {
+                    colorPrefix = `같은 ${mCM.name}이 공명하며`;
+                } else {
+                    const ck = [mColorKey, fColorKey].sort().join('+');
+                    colorPrefix = colorComboDesc[ck]
+                        ? colorComboDesc[ck]
+                        : `${mCM.name}과 ${fCM.name}이 어우러지며`;
+                }
+
+                // ── 75+ (18 variants) ──
+                if (sc >= 75) {
+                    if (sameColor && ampGap <= 2 && freqGap <= 2) return `${colorPrefix} — 거의 하나처럼 <b style="color:#059669">포개져 흐르는</b> 천생연분형 공명`;
+                    if (sameColor && ampGap <= 2) return `${colorPrefix} — 같은 크기로 <b style="color:#059669">나란히 흘러가는</b> 쌍둥이 파동`;
+                    if (sameColor && avgAmp >= 5) return `${colorPrefix} — 같은 결이 <b style="color:#059669">배로 증폭되어 힘차게 울리는</b> 거울형 공명`;
+                    if (sameColor) return `${colorPrefix} — 같은 결이 <b style="color:#059669">서로를 비추며 깊어지는</b> 소울메이트형 공명`;
+                    if (ampGap <= 2 && freqGap <= 2) return `${colorPrefix} — 크기와 속도가 닮아 <b style="color:#059669">자연스럽게 동기화</b>된 조화로운 공명`;
+                    if (ampGap <= 2 && avgAmp >= 5) return `${colorPrefix} — 같은 크기의 에너지가 <b style="color:#059669">힘차게 합류하는</b> 폭발형 공명`;
+                    if (ampGap <= 2) return `${colorPrefix} — 비슷한 진폭이 <b style="color:#059669">잔잔하게 겹치며</b> 하나 되는 공명`;
+                    if (avgAmp >= 6) return `${colorPrefix} — 서로 다른 강렬한 에너지가 <b style="color:#059669">하나의 거대한 물결</b>로 합쳐지는 공명`;
+                    if (avgAmp >= 4) return `${colorPrefix} — 서로 다른 에너지가 합쳐져 <b style="color:#059669">더 큰 파동</b>을 만드는 시너지형 공명`;
+                    if (avgFreq >= 7) return `${colorPrefix} — 두 파동 모두 <b style="color:#059669">깊고 안정된 저음</b>으로 울리는 신뢰의 공명`;
+                    if (avgFreq >= 5) return `${colorPrefix} — 안정된 리듬끼리 <b style="color:#059669">고요하게 맞물리는</b> 평화로운 공명`;
+                    if (freqGap >= 3) return `${colorPrefix} — 다른 속도가 만나 <b style="color:#059669">독특한 하모니</b>를 이루는 변주형 공명`;
+                    if (attachCombo === 'secure-secure') return `${colorPrefix} — 단단한 신뢰가 <b style="color:#059669">서로를 감싸는</b> 안전기지형 공명`;
+                    if (mAt === 'secure' || fAt === 'secure') return `${colorPrefix} — 안정된 파동이 상대를 <b style="color:#059669">품어주는</b> 포용형 공명`;
+                    return `${colorPrefix} — 빈 자리를 정확히 채우며 <b style="color:#059669">완벽한 하모니</b>를 이루는 공명`;
+                }
+                // ── 55-74 (18 variants) ──
+                else if (sc >= 55) {
+                    if (attachCombo === 'anxious-secure' && ampGap <= 2) return `${colorPrefix} — 비슷한 크기의 파동이 <b style="color:#2563EB">따뜻하게 감싸 안는</b> 안정형 치유 하모니`;
+                    if (attachCombo === 'anxious-secure' && avgAmp >= 4) return `${colorPrefix} — 뜨거운 파동을 든든한 파동이 <b style="color:#2563EB">부드럽게 받아주는</b> 에너지 치유 하모니`;
+                    if (attachCombo === 'anxious-secure') return `${colorPrefix} — 예민한 떨림을 포근하게 <b style="color:#2563EB">감싸주는</b> 치유형 하모니`;
+                    if (attachCombo === 'avoidant-secure' && freqGap >= 3) return `${colorPrefix} — 다른 리듬이지만 <b style="color:#2563EB">서로의 공간을 존중</b>하며 공존하는 균형형`;
+                    if (attachCombo === 'avoidant-secure') return `${colorPrefix} — 독립적 파동과 포용적 파동이 <b style="color:#2563EB">적절한 거리를 유지</b>하며 공존하는 균형형`;
+                    if (attachCombo === 'anxious-avoidant' && avgAmp >= 4) return `${colorPrefix} — 강렬한 밀당이 <b style="color:#2563EB">묘한 화학반응</b>을 일으키는 자극형 파동`;
+                    if (attachCombo === 'anxious-avoidant') return `${colorPrefix} — 가까워졌다 멀어지는 <b style="color:#2563EB">밀당의 긴장감</b>이 묘한 끌림을 만드는 파동`;
+                    if (sameColor && avgAmp >= 5) return `${colorPrefix} — 같은 성향의 에너지가 <b style="color:#2563EB">만나 폭발적 시너지</b>를 내는 동류형`;
+                    if (sameColor && avgAmp >= 3) return `${colorPrefix} — 같은 결이 <b style="color:#2563EB">나란히 흐르며 공감대</b>를 형성하는 동반자형`;
+                    if (sameColor) return `${colorPrefix} — 비슷한 리듬이 <b style="color:#2563EB">고요하게 공명하며</b> 이해의 폭을 넓히는 공감형`;
+                    if (ampGap >= 5) return `${colorPrefix} — 크기가 확연히 다른 파동이 <b style="color:#2563EB">서로의 볼륨을 조율</b>하며 만나는 보완형`;
+                    if (ampGap >= 3) return `${colorPrefix} — 큰 파동과 작은 파동이 <b style="color:#2563EB">중간 지점에서 합류</b>하는 절충형 하모니`;
+                    if (freqGap >= 5) return `${colorPrefix} — 빠른 리듬과 느린 리듬이 <b style="color:#2563EB">새로운 박자를 창조</b>하는 크로스오버 파동`;
+                    if (freqGap >= 3) return `${colorPrefix} — 서로 다른 속도가 <b style="color:#2563EB">교차하며 독특한 패턴</b>을 만드는 하모니`;
+                    if (avgAmp >= 5) return `${colorPrefix} — 각자의 강한 에너지가 <b style="color:#2563EB">교차점에서 스파크</b>를 일으키는 역동형`;
+                    if (avgFreq >= 6) return `${colorPrefix} — 두 파동 모두 <b style="color:#2563EB">느리고 깊은 리듬</b>으로 서로를 감싸는 안정형`;
+                    return `${colorPrefix} — 서로 다른 파장이 <b style="color:#2563EB">접점을 찾아가며</b> 새로운 균형을 만드는 탐색형`;
+                }
+                // ── 54 이하 (18 variants) ──
+                else {
+                    if (attachCombo === 'anxious-avoidant' && avgAmp >= 5) return `${colorPrefix} — 강렬한 끌림과 독립적 매력이 <b style="color:#D97706">드라마틱한 케미</b>를 만드는 파동`;
+                    if (attachCombo === 'anxious-avoidant') return `${colorPrefix} — 다가감과 여유로움이 어우러져 <b style="color:#D97706">독특한 밀당의 매력</b>을 가진 파동`;
+                    if (attachCombo === 'anxious-anxious') return `${colorPrefix} — 서로의 감정을 깊이 이해하는 <b style="color:#D97706">공감력 최강</b>의 파동`;
+                    if (attachCombo === 'avoidant-avoidant') return `${colorPrefix} — 서로의 독립성을 자연스럽게 존중하는 <b style="color:#D97706">자유로운 동반자</b> 파동`;
+                    if (ampGap >= 6) return `${colorPrefix} — 파동 크기가 확연히 달라 <b style="color:#D97706">서로에게 없는 에너지를 선물</b>하는 보완형 파동`;
+                    if (ampGap >= 4) return `${colorPrefix} — 크고 잔잔한 파동이 만나 <b style="color:#D97706">서로의 볼륨을 풍성하게</b> 채우는 파동`;
+                    if (freqGap >= 6) return `${colorPrefix} — 다른 생활 템포가 만나 <b style="color:#D97706">일상에 새로운 리듬</b>을 선사하는 파동`;
+                    if (freqGap >= 4) return `${colorPrefix} — 다른 속도의 매력이 <b style="color:#D97706">변주곡처럼 다채로운 박자</b>를 만드는 파동`;
+                    if (sameColor && avgAmp >= 4) return `${colorPrefix} — 같은 성향의 에너지가 <b style="color:#D97706">서로를 자극하며 성장</b>시키는 역동적 파동`;
+                    if (sameColor) return `${colorPrefix} — 같은 결이기에 <b style="color:#D97706">누구보다 깊이 이해</b>할 수 있는 특별한 파동`;
+                    if (avgAmp >= 6) return `${colorPrefix} — 각자 강렬한 파동이 <b style="color:#D97706">만나면 불꽃처럼 빛나는</b> 역동적 관계`;
+                    if (avgAmp >= 4) return `${colorPrefix} — 활발한 에너지끼리 <b style="color:#D97706">새로운 방향을 함께 개척</b>하는 탐험형 파동`;
+                    if (avgFreq >= 6) return `${colorPrefix} — 둘 다 깊은 안정감을 가져 <b style="color:#D97706">고요한 신뢰를 쌓아가는</b> 파동`;
+                    if (avgFreq <= 2) return `${colorPrefix} — 자유로운 리듬끼리 만나 <b style="color:#D97706">함께 새로운 패턴을 창조</b>하는 파동`;
+                    return `${colorPrefix} — 서로 다른 주파수가 <b style="color:#D97706">만나 신선한 하모니를 발견</b>하는 탐색형 파동`;
+                }
+            }
+
+            const mResult = describePersonal(mAxes);
+            const fResult = describePersonal(fAxes);
+
+            return {
+                male: mResult.html,
+                female: fResult.html,
+                combined: describeCombined(score, mAxes, fAxes, mResult.colorKey, fResult.colorKey),
+                maleColor: mResult.color,
+                femaleColor: fResult.color,
+                maleEmoji: mResult.emoji,
+                femaleEmoji: fResult.emoji
+            };
+        }
+
         function getWaveDescription(score, mAxes, fAxes) {
             // ... (kept existing logic)
              const mEnergy = (mAxes['외향성'] || 0) + (mAxes['개방성'] || 0);
@@ -2490,10 +2873,10 @@
                 if (isColorSame) {
                     if (avgEnergy >= 3.5) {
                         mainText = "비슷한 불꽃이 만나 <span style='color:#F59E0B'>더 크고 뜨거운 에너지</span>를 만듭니다.";
-                        subText = "서로 너무 닮아서 부딪히기도 하지만, 그만큼 누구보다 서로를 잘 이해할 수 있습니다.";
+                        subText = "서로 닮은 만큼 누구보다 깊이 이해하고, 함께 있을 때 가장 자연스러운 관계입니다.";
                     } else {
                         mainText = "비슷한 결을 가진 두 분은 <span style='color:#3B82F6'>깊은 공감대</span>를 형성합니다.";
-                        subText = "약간의 방식 차이만 조율한다면, 누구보다 완벽한 소울메이트가 될 수 있습니다.";
+                        subText = "같은 결을 가진 두 분이기에, 누구보다 완벽한 소울메이트가 될 수 있습니다.";
                     }
                 }
                 else { 
@@ -2562,6 +2945,21 @@
             if(waveDesc) {
                 waveDesc.innerHTML = getWaveDescription(data.score, data.maleAxes, data.femaleAxes);
             }
+            // 파동 3줄 요약 렌더링
+            const waveSummary = getWaveSummaryLines(data.score, data.maleAxes, data.femaleAxes);
+            const wMale = document.getElementById('wave-male-text');
+            const wFemale = document.getElementById('wave-female-text');
+            const wCombined = document.getElementById('wave-combined-text');
+            if (wMale) wMale.innerHTML = waveSummary.male;
+            if (wFemale) wFemale.innerHTML = waveSummary.female;
+            if (wCombined) wCombined.innerHTML = waveSummary.combined;
+            // 아이콘 배경색을 실제 파동 색상으로 동적 변경
+            const iconM = document.getElementById('wave-icon-male');
+            const iconF = document.getElementById('wave-icon-female');
+            const iconC = document.getElementById('wave-icon-combined');
+            if (iconM && waveSummary.maleColor) iconM.style.background = waveSummary.maleColor[0];
+            if (iconF && waveSummary.femaleColor) iconF.style.background = waveSummary.femaleColor[0];
+            if (iconC && waveSummary.maleColor && waveSummary.femaleColor) iconC.style.background = `linear-gradient(135deg, ${waveSummary.maleColor[0]}, ${waveSummary.femaleColor[0]})`;
             const updateBar = (id, score, type) => {
                 const txt = document.getElementById(`card-${id}-text`);
                 const rating = getTextRating(score, type); 
